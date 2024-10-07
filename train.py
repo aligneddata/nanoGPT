@@ -29,6 +29,12 @@ from torch.distributed import init_process_group, destroy_process_group
 
 from model import GPTConfig, GPT
 
+# added codes
+import torch._dynamo
+torch._dynamo.config.suppress_errors = True
+print(torch.cuda.is_available())
+print(torch.cuda.device_count())
+
 # -----------------------------------------------------------------------------
 # default config values designed to train a gpt2 (124M) on OpenWebText
 # I/O
